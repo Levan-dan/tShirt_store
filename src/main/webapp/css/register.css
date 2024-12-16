@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    height: auto;
+    display: flex;
+    justify-content: center; /* Căn giữa ngang */
+    align-items: center;    /* Căn giữa dọc */
+    background-color: #f0f0f0; /* Màu nền tổng thể */
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+    background-color: pink;
+}
+#khungDangKy{
+    justify-content: center; /* Căn giữa ngang */
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: pink;
+}
+
+.dangKy{
+    width: 450px;
+    height: 37px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+button{
+    width: 450px;
+    height: 37px;
+    background-color: palevioletred;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4);
+    margin-top: 30px;
+}
+
+input:hover {
+    border-color: limegreen; /* Màu viền khi hover */
+}
+
+/* Khi ô input được focus (đang nhập liệu) */
+input:focus {
+    outline: lawngreen; /* Ẩn viền mặc định của trình duyệt */
+    border-color: green; /* Màu viền khi focus */
+    box-shadow: 0 0 9px rgba(100, 190, 82, 0.9); /* Hiệu ứng ánh sáng */
+}
+#login{
+    margin-top: 20px;
+}
+#logo {
+    width: 100px; /* Chiều rộng */
+    height: 30px; /* Chiều cao */
+}
+
+#footer{
+    color: gray;
+    margin-top: 20px;
+}
