@@ -22,9 +22,9 @@
         <br>
 
             <form action="store?action=login" method="post">
-                <input type="text" name="username" id="usernameInput" placeholder="Tên đăng nhập"/>
+                <input type="text" name="username" id="usernameInput" placeholder="Tên đăng nhập" required/>
                 <br>
-                <input type="password" name="password" id="passwordInput" placeholder="Mật khẩu">
+                <input type="password" name="password" id="passwordInput" placeholder="Mật khẩu" required/>
                 <br>
                 <button type="submit" id="actionLogin">Đăng nhập</button>
             </form>

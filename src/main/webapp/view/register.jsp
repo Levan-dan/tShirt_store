@@ -15,17 +15,17 @@
 <div id="khungDangKy">
   <h1>Haravan - Đăng ký tài khoản</h1>
   <form action="store?action=signUp" method="post">
-    <input class="dangKy" type="text" name="username" placeholder="Tên người dùng"/>
+    <input class="dangKy" type="text" name="username" placeholder="Tên người dùng" required/>
 <br>
-    <input class="dangKy" type="text" name="email" placeholder="Địa chỉ email"/>
+    <input class="dangKy" type="text" name="email" placeholder="Địa chỉ email" required/>
     <br>
-    <input class="dangKy" type="password" name="password" placeholder="Mật khẩu"/>
+    <input class="dangKy" type="password" name="password" placeholder="Mật khẩu" required/>
     <br>
-    <input class="dangKy" type="password" name="confirmPassword" placeholder="Xác nhận mật khẩu"/>
+    <input class="dangKy" type="password" name="confirmPassword" placeholder="Xác nhận mật khẩu" required/>
     <br>
-    <input class="dangKy" type="text" name="phoneNumber" placeholder="Số điện thoại"/>
+    <input class="dangKy" type="text" name="phoneNumber" placeholder="Số điện thoại" required/>
     <br>
-    <input class="dangKy" type="text" name="address" placeholder="Địa chỉ"/>
+    <input class="dangKy" type="text" name="address" placeholder="Địa chỉ" required/>
     <br>
     <button type="submit">Tạo tài khoản</button>
   </form>
