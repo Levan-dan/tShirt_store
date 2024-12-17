@@ -19,11 +19,9 @@
             <c:when test="${not empty usernameError}">
                 ${usernameError}
             </c:when>
-            <br>
             <c:when test="${not empty emailError}">
                 ${emailError}
             </c:when>
-            <br>
             <c:when test="${not empty phoneNumberError}">
                 ${phoneNumberError}
             </c:when>
