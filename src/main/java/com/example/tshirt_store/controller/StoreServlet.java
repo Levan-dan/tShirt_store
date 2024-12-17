@@ -29,6 +29,9 @@ public class StoreServlet extends HttpServlet {
             case "signUp":
                 signUp(request, response);
                 break;
+            case "login":
+                login(request, response);
+                break;
         }
     }
 
@@ -68,8 +71,10 @@ public class StoreServlet extends HttpServlet {
                 return;
             }else {
                 User user = new User(username, email, password, phoneNumber, address);
-                storeServiceInterface.ActionSignUp(user);
-                response.sendRedirect("view/login.jsp");
+                storeServiceInterface.actionSignUp(user);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("view/login.jsp");
+                dispatcher.forward(request,response);
+//                response.sendRedirect("view/login.jsp");
             }
 
 
@@ -77,6 +82,51 @@ public class StoreServlet extends HttpServlet {
             e.getMessage();
         }
 
+    }
+
+    protected void login(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            // Lấy dữ liệu từ form
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+
+            // Kiểm tra thông tin đăng nhập với database
+            User userDangNhap = storeServiceInterface.actionLogin(username, password);
+
+            if (userDangNhap != null) { // Nếu tìm thấy người dùng
+                if (userDangNhap.getPassword().equals(password)) {
+                    if (userDangNhap.getRole().equals("admin")) {
+                        // Chuyển đến trang quản trị
+                        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/adminHome.jsp");
+                        requestDispatcher.forward(request, response);
+                    } else {
+                        // Chuyển đến trang người dùng
+                        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/userHome.jsp");
+                        requestDispatcher.forward(request, response);
+                    }
+                } else {
+                    // Mật khẩu không đúng
+                    request.setAttribute("loginError", "Sai mật khẩu!");
+                    RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/login.jsp");
+                    requestDispatcher.forward(request, response);
+                }
+            } else {
+                // Không tìm thấy username
+                request.setAttribute("loginError", "Thông tin đăng nhập không tồn tại!");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/login.jsp");
+                requestDispatcher.forward(request, response);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Nếu có lỗi, quay lại trang đăng nhập với thông báo lỗi chung
+            request.setAttribute("loginError", "Có lỗi xảy ra, vui lòng thử lại!");
+            try {
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/login.jsp");
+                requestDispatcher.forward(request, response);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
 

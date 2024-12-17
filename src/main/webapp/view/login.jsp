@@ -18,6 +18,12 @@
         <img id="logo" src="https://file.hstatic.net/1000001117/file/logo_color_ngang_87db7d919b5a49bd91c08ec039c38ff6.svg">
         <h2>Haravan - Đăng nhập</h2>
         <br>
+        <p style="color: red">
+            <c:if test="${not empty loginError}">
+                ${loginError}
+            </c:if>
+        </p>
+        <br>
         <p>Xin chào, vui lòng nhập thông tin đăng nhập</p>
         <br>
 

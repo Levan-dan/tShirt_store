@@ -27,7 +27,11 @@ public class User {
         this.address = address;
     }
 
-
+    public User(String username, String password, String role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
 
     public int getIdUser() {
         return idUser;

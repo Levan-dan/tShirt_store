@@ -5,12 +5,13 @@ import com.example.tshirt_store.modle.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class StoreService implements StoreServiceInterface {
 
-    private String url = "jdbc:mysql://localhost:3306/shirt_store";
-    private String name = "root";
-    private String pass = "882005";
+    private String url = System.getenv("url");
+    private String name = System.getenv("name");
+    private String pass = System.getenv("pass");
 
     public Connection getConnection() {
         Connection connection = null;
@@ -26,9 +27,10 @@ public class StoreService implements StoreServiceInterface {
 
 
     private String queryAdd = "INSERT INTO user (username, password, phoneNumber, email, role, address) VALUES (?, ?, ?, ?,? , ?)";
+
     @Override
-    public void ActionSignUp(User user) {
-        try{
+    public void actionSignUp(User user) {
+        try {
             Connection connection = getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(queryAdd);
             preparedStatement.setString(1, user.getUsername());
@@ -38,10 +40,35 @@ public class StoreService implements StoreServiceInterface {
             preparedStatement.setString(5, "customer");
             preparedStatement.setString(6, user.getPassword());
             preparedStatement.executeUpdate();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.getMessage();
         }
 
 
+    }
+
+    private String queryLogin = "select username, `password`, role from user where username = ? and password = ?;";
+
+    @Override
+    public User actionLogin(String name, String pass) {
+        User user = null;
+        try {
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(queryLogin);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, pass);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                String username = resultSet.getString("username");
+                String password = resultSet.getString("password");
+                String role = resultSet.getString("role");
+                user = new User(username, password, role);
+            }
+
+
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return user;
     }
 }
