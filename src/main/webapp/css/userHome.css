@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    height: auto;
+    display: block;
+    font-family: Arial, sans-serif;
+}
+
+#khungCustomer{
+    height: auto;
+}
+
+
+#header{
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 75px;
+    background-color: plum;
+    justify-content: space-between;
+}
+#menu ul {
+    list-style: none; /* Loại bỏ dấu chấm */
+    display: flex;
+    gap: 20px; /* Tạo khoảng cách giữa các mục */
+    padding: 0;
+    margin: 0;
+}
+
+
+#menu ul li a {
+    text-decoration: none; /* Loại bỏ gạch chân */
+    font-size: 18px; /* Kích thước chữ */
+    color: #333; /* Màu chữ */
+    padding: 5px 10px; /* Khoảng cách bên trong */
+    font-family: Arial, sans-serif;
+}
+
+#menu ul li a:hover {
+    color: #007bff; /* Đổi màu khi hover */
+}
+
+
+#logoImage {
+    width: 110px;
+    height: 60px;
+    object-fit: contain;
+}
+
+#search-input {
+    margin-top: 17px;
+    width: 300px;
+    height: 26px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#search-button {
+    box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4);
+    color: white;
+    background-color: palevioletred;
+    width: 80px;
+    height: 26px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#logoCart {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+/* Custom styles for carousel */
+.carousel-inner img {
+    padding-top: 5px;
+    height: 600px;
+    object-fit: cover; /* Cắt ảnh theo khung */
+
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Nền mờ cho nút điều khiển */
+    border-radius: 50%; /* Bo tròn */
+    padding: 10px; /* Khoảng cách nội dung */
+}
+
+.carousel-indicators li {
+    background-color: #000; /* Màu đen cho dấu chấm */
+}
+
+.carousel-indicators .active {
+    background-color: #fff; /* Màu trắng khi được chọn */
+}
+
+
+
+
+
+.carousel-inner img {
+    padding-top: 5px;
+    height: 600px;
+    object-fit: cover;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+.d-block {
+    display: block !important;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.mb-5, .my-5 {
+    height: 370px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    margin-bottom: 3rem !important;
+}
+
+.container my-5{
+    max-width: 100%;
+    margin: 0px;
+    padding: 0px;
+}

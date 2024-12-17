@@ -152,7 +152,7 @@ public class StoreServlet extends HttpServlet {
 
     public void showSignUp(HttpServletRequest request, HttpServletResponse response) {
         try {
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/register.jsp");
+         RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/register.jsp");
             requestDispatcher.forward(request, response);
         } catch (Exception e) {
             e.getMessage();
