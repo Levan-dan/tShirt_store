@@ -19,14 +19,15 @@ public class User {
         this.address = address;
     }
 
-    public User(String username, String password, String phoneNumber, String email, String role, String address) {
+    public User(String username, String password, String phoneNumber, String email, String address) {
         this.username = username;
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.role = role;
         this.address = address;
     }
+
+
 
     public int getIdUser() {
         return idUser;

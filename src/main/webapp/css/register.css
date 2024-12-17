@@ -5,7 +5,7 @@ body {
     justify-content: center; /* Căn giữa ngang */
     align-items: center;    /* Căn giữa dọc */
     background-color: #f0f0f0; /* Màu nền tổng thể */
-    margin-top: 50px;
+    margin-top: 10px;
     font-family: Arial, sans-serif;
     background-color: pink;
 }
@@ -15,12 +15,17 @@ body {
     font-family: Arial, sans-serif;
     background-color: pink;
 }
-
+#error{
+    color: red;
+    margin: 0px;
+    text-align: center;
+    height: 18px;
+}
 .dangKy{
     width: 450px;
     height: 37px;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 button{
