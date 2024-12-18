@@ -73,7 +73,7 @@ public class StoreService implements StoreServiceInterface {
     }
 
 
-    private String queryGetProduct = "select * from product";
+    private String queryGetProduct = "SELECT * FROM shirt_store.product order by idProduct desc; ";
 
     @Override
     public List<Product> showProduct() {
@@ -96,5 +96,24 @@ public class StoreService implements StoreServiceInterface {
             throw new RuntimeException(e);
         }
         return productList;
+    }
+
+
+    private String queryAddProduct = "INSERT INTO product (nameProduct, image, description, price, stock) VALUES (?, ?, ?, ?, ?)";
+    @Override
+    public void addProduct(Product product) {
+        try{
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(queryAddProduct);
+            preparedStatement.setString(1, product.getNameProduct());
+            preparedStatement.setString(2, product.getImage());
+            preparedStatement.setString(3, product.getDescription());
+            preparedStatement.setDouble(4, product.getPrice());
+            preparedStatement.setInt(5, product.getStock());
+            preparedStatement.executeUpdate();
+        }catch (Exception e){
+            e.getMessage();
+        }
+
     }
 }

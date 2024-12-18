@@ -10,5 +10,6 @@ public interface StoreServiceInterface {
     User actionLogin(String name, String pass);
 
     List<Product> showProduct();
+    void addProduct(Product product);
 
 }

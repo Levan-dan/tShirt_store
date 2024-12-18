@@ -88,7 +88,7 @@
 
     </div>
 
-    <div id="bestSelling">
+    <div style="padding-top: 10px" id="bestSelling">
         <h2>BÁN CHẠY</h2>
         <form method="get" action="store">
             <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
@@ -104,7 +104,7 @@
         </form>
     </div>
 
-    <div id="productMale">
+    <div style="padding-top: 10px" id="productMale">
         <h2>ĐỒ NAM</h2>
         <form method="get" action="store">
             <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
@@ -120,7 +120,7 @@
         </form>
     </div>
 
-    <div id="productFemale">
+    <div style="padding-top: 10px" id="productFemale">
         <h2>ĐỒ NỮ</h2>
         <form method="get" action="store">
             <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
@@ -136,7 +136,7 @@
         </form>
     </div>
 
-    <div id="productChildren">
+    <div style="padding-top: 10px" id="productChildren">
         <h2>ĐỒ TRẺ EM</h2>
         <form method="get" action="store">
             <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">

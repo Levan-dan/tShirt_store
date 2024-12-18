@@ -25,6 +25,7 @@ public class StoreServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
+
         String action = request.getParameter("action");
         System.out.println(action);
         if (action == null) {
@@ -37,7 +38,36 @@ public class StoreServlet extends HttpServlet {
             case "login":
                 login(request, response);
                 break;
+            case "add":
+                addProductAdmin(request, response);
+                break;
+            default:
+                showCrud(request, response);
+                break;
+
         }
+    }
+
+
+    public void addProductAdmin(HttpServletRequest request, HttpServletResponse response){
+        try{
+            String name = request.getParameter("nameProduct");
+            String image = request.getParameter("imageProduct");
+            String description = request.getParameter("description");
+            double price = Double.parseDouble(request.getParameter("price"));
+            int stock = Integer.parseInt(request.getParameter("stock"));
+            Product product = new Product(name, image, description, price, stock);
+            storeServiceInterface.addProduct(product);
+            List<Product> listProduct = storeServiceInterface.showProduct();
+            request.setAttribute("showListProduc", listProduct);
+           RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/crudAdmin.jsp");
+           requestDispatcher.forward(request, response);
+
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+
     }
 
 
