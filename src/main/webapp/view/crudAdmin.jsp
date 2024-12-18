@@ -48,7 +48,7 @@
                 <td>${product.stock}</td>
                 <td>
                     <button style="background-color: gold; width: 70px; border-radius: 4px; color: white; height: 30px; margin: 5px;"><a href="store?action=edit&idProduct=${product.idProduct}">Sửa</a></button>
-                    <button style="background-color: red; width: 70px; border-radius: 4px; color: white; height: 30px; margin: 5px;"><a>Xóa</a></button>
+                    <button style="background-color: red; width: 70px; border-radius: 4px; color: white; height: 30px; margin: 5px;"><a href="store?action=delete&idProduct=${product.idProduct}">Xóa</a></button>
                 </td>
             </tr>
         </c:forEach>

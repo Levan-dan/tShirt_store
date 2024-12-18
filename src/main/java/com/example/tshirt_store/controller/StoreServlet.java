@@ -217,6 +217,9 @@ public class StoreServlet extends HttpServlet {
             case "edit":
                 findByIDAdmin(request, response);
                 break;
+            case "delete":
+                deleteProductAdmin(request, response);
+                break;
             default:
                 screenFirst(request, response);
                 break;
@@ -224,6 +227,21 @@ public class StoreServlet extends HttpServlet {
     }
 
 
+
+    public void deleteProductAdmin(HttpServletRequest request, HttpServletResponse response){
+        try{
+            int id = Integer.parseInt(request.getParameter("idProduct"));
+            storeServiceInterface.deleteProduct(id);
+            List<Product> listProduct = storeServiceInterface.showProduct();
+            request.setAttribute("showListProduc", listProduct);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/crudAdmin.jsp");
+            requestDispatcher.forward(request, response);
+        }catch (Exception e ){
+            e.getMessage();
+        }
+
+
+    }
 
     public void findByIDAdmin(HttpServletRequest request , HttpServletResponse response){
         try{
