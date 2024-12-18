@@ -21,7 +21,7 @@
 
 
             <ul>
-                <li><a>Quản lý sản phẩm</a></li>
+                <li><a href="store?action=crud">Quản lý sản phẩm</a></li>
                 <li><a>Quản lý đơn hàng</a></li>
                 <li><a>Quản lý hóa đơn</a></li>
 

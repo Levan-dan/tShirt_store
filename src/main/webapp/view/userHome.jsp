@@ -77,7 +77,7 @@
             <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
                 <c:forEach var="product" items="${showListProduc}">
                     <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box;">
-                        <img style="width: 100%; height: auto;" src="${product.image}" alt="${product.nameProduct}" />
+                        <img id="thu" style="width: 100%; height: auto;" src="${product.image}" alt="${product.nameProduct}" />
                         <h5 style="padding-top: 7px">${product.nameProduct}</h5>
                         <p style="color: red">Giá: ${product.price}00 VNĐ</p>
                         <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px" href="store?action=info&idProduct=${product.idProduct}">Chi Tiết</button>
@@ -300,5 +300,6 @@
     <!-- End of .container -->
 
 </div>
+
 </body>
 </html>

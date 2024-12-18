@@ -12,3 +12,4 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(`Slide đang chuyển: ${event.to} từ vị trí ${event.from}`);
     });
 });
+
