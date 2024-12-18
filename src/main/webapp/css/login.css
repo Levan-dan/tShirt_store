@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    height: auto;
+    display: flex;
+    justify-content: center; /* Căn giữa ngang */
+    align-items: center;    /* Căn giữa dọc */
+    background-color: #f0f0f0; /* Màu nền tổng thể */
+}
+
+#border{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+#imageLogin{
+    background-image: url('https://dongphuctienbao.com/wp-content/uploads/2021/06/693.png');
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+#formLogin {
+    background-color: pink;
+    width: 50%;
+    height: auto;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+    text-align: center; /* Căn giữa nội dung */
+    font-family: Arial, sans-serif; /* Kiểu font */
+}
+
+#logo {
+    width: 200px; /* Chiều rộng */
+    height: 120px; /* Chiều cao */
+}
+
+#usernameInput {
+    width: 450px;
+    height: 37px;
+    border-radius: 5px;
+}
+
+
+#passwordInput{
+    width: 450px;
+    height: 37px;
+    border-radius: 5px;
+}
+
+/* Khi di chuột vào ô input */
+input:hover {
+    border-color: limegreen; /* Màu viền khi hover */
+}
+
+/* Khi ô input được focus (đang nhập liệu) */
+input:focus {
+    outline: lawngreen; /* Ẩn viền mặc định của trình duyệt */
+    border-color: green; /* Màu viền khi focus */
+    box-shadow: 0 0 9px rgba(100, 190, 82, 0.9); /* Hiệu ứng ánh sáng */
+}
+
+#actionLogin{
+    width: 450px;
+    height: 37px;
+    background-color: palevioletred;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4);
+}
+
+form {
+
+    display: flex;
+    flex-direction: column; /* Sắp xếp phần tử theo chiều dọc */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+    align-items: center;
+}
+
+
+#linkDangKy{
+    margin-top: 25px;
+    color: gray;
+}
+#footer{
+    margin-top:80px ;
+    color: gray;
+}
