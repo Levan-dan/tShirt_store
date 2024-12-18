@@ -17,6 +17,10 @@
 <form action="store?action=edit" method="post">
     <div id="khungEdit">
         <div class="form-group">
+            <label >Mã sản phẩm</label>
+            <input type="text" id="idProduct" name="idProduct" value="${product.idProduct}" readonly/>
+        </div>
+        <div class="form-group">
             <label >Tên sản phẩm</label>
             <input type="text" id="nameProduct" name="nameProduct" value="${product.nameProduct}" />
         </div>
