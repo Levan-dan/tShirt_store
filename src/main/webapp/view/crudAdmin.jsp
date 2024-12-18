@@ -43,7 +43,7 @@
                 <td>${product.idProduct}</td>
                 <td>${product.nameProduct}</td>
                 <td><img src="${product.image}"></td>
-                <td>${product.description}</td>
+                <td style="width: 500px">${product.description}</td>
                 <td>${product.price}00 VND</td>
                 <td>${product.stock}</td>
                 <td>
