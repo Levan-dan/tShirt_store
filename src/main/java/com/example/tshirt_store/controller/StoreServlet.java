@@ -41,6 +41,9 @@ public class StoreServlet extends HttpServlet {
             case "add":
                 addProductAdmin(request, response);
                 break;
+            case "edit":
+                editProductAdmin(request, response);
+                break;
             default:
                 showCrud(request, response);
                 break;
@@ -48,6 +51,29 @@ public class StoreServlet extends HttpServlet {
         }
     }
 
+
+    public void editProductAdmin(HttpServletRequest request, HttpServletResponse response){
+        try{
+            int id = Integer.parseInt(request.getParameter("idProduct"));
+            String name = request.getParameter("nameProduct");
+            String image = request.getParameter("imageProduct");
+            String description = request.getParameter("description");
+            double price = Double.parseDouble(request.getParameter("price"));
+            int stock = Integer.parseInt(request.getParameter("stock"));
+            Product product = new Product(id, name, image, description, price, stock);
+            storeServiceInterface.editProduct(product);
+            List<Product> listProduct = storeServiceInterface.showProduct();
+            request.setAttribute("showListProduc", listProduct);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/crudAdmin.jsp");
+            requestDispatcher.forward(request, response);
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+
+
+
+    }
 
     public void addProductAdmin(HttpServletRequest request, HttpServletResponse response){
         try{

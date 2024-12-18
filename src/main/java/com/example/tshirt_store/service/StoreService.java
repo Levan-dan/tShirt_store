@@ -142,4 +142,26 @@ public class StoreService implements StoreServiceInterface {
         }
         return product;
     }
+
+
+    private String queryUpdate = "update product set nameProduct = ?, image = ?, `description` = ?, price = ?, stock = ? where idProduct = ?";
+    @Override
+    public void editProduct(Product product) {
+        try{
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(queryUpdate);
+            preparedStatement.setString(1, product.getNameProduct());
+            preparedStatement.setString(2, product.getImage());
+            preparedStatement.setString(3, product.getDescription());
+            preparedStatement.setDouble(4, product.getPrice());
+            preparedStatement.setInt(5, product.getStock());
+            preparedStatement.setInt(6, product.getIdProduct());
+            preparedStatement.executeUpdate();
+
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+
+    }
 }

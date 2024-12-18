@@ -13,4 +13,6 @@ public interface StoreServiceInterface {
     void addProduct(Product product);
 
     Product findByIDProduct(int idProduct);
+
+    void editProduct(Product product);
 }
