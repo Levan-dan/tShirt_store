@@ -164,4 +164,20 @@ public class StoreService implements StoreServiceInterface {
 
 
     }
+
+
+    private String queryDelete = "delete from product where idProduct = ?";
+    @Override
+    public void deleteProduct(int idProduct) {
+        try{
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(queryDelete);
+            preparedStatement.setInt(1, idProduct);
+            preparedStatement.executeUpdate();
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+
+    }
 }

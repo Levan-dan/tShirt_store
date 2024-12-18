@@ -15,4 +15,7 @@ public interface StoreServiceInterface {
     Product findByIDProduct(int idProduct);
 
     void editProduct(Product product);
+
+    void deleteProduct(int idProduct);
+
 }
