@@ -15,7 +15,7 @@
 </head>
 <body>
 <div id="khungCustomer">
-    <div id="header">
+    <div id="header" style="position: fixed; width: 100%; z-index: 1000; ">
         <img id="logoImage"
              src="https://file.hstatic.net/1000001117/file/logo_black_doc_dc234adc40f541e5bbc39cf289889b3e.png">
         <div id="menu">
@@ -31,11 +31,12 @@
             <input id="search-input" type="text" name="sanPham" required placeholder="Tìm kiếm..."/>
             <button id="search-button" type="submit">Tìm kiếm</button>
         </form>
-        <img id="logoCart" src="https://bizweb.dktcdn.net/100/344/969/themes/705911/assets/carts.svg?1723002522273">
+        <img class="logoCart" src="https://bizweb.dktcdn.net/100/344/969/themes/705911/assets/carts.svg?1723002522273">
+        <img class="logoCart" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1656px-User_icon-cp.svg.png">
     </div>
 
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div style="padding-top: 73px" id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -71,23 +72,84 @@
     </div>
 
     <div id="productNew">
-       <h2>HÀNG MỚI</h2>
+        <h2 style="padding-top: 10px">HÀNG MỚI</h2>
+        <form method="get" action="store">
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <c:forEach var="product" items="${showListProduc}">
+                    <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box;">
+                        <img style="width: 100%; height: auto;" src="${product.image}" alt="${product.nameProduct}" />
+                        <h5 style="padding-top: 7px">${product.nameProduct}</h5>
+                        <p style="color: red">Giá: ${product.price}00 VNĐ</p>
+                        <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px" href="store?action=info&idProduct=${product.idProduct}">Chi Tiết</button>
+                    </div>
+                </c:forEach>
+            </div>
+        </form>
+
     </div>
 
     <div id="bestSelling">
         <h2>BÁN CHẠY</h2>
+        <form method="get" action="store">
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <c:forEach var="product" items="${showListProduc}">
+                    <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box;">
+                        <img style="width: 100%; height: auto;" src="${product.image}" alt="${product.nameProduct}" />
+                        <h5 style="padding-top: 7px">${product.nameProduct}</h5>
+                        <p style="color: red">Giá: ${product.price}00 VNĐ</p>
+                        <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px" href="store?action=info&idProduct=${product.idProduct}">Chi Tiết</button>
+                    </div>
+                </c:forEach>
+            </div>
+        </form>
     </div>
 
     <div id="productMale">
         <h2>ĐỒ NAM</h2>
+        <form method="get" action="store">
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <c:forEach var="product" items="${showListProduc}">
+                    <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box;">
+                        <img style="width: 100%; height: auto;" src="${product.image}" alt="${product.nameProduct}" />
+                        <h5 style="padding-top: 7px">${product.nameProduct}</h5>
+                        <p style="color: red">Giá: ${product.price}00 VNĐ</p>
+                        <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px" href="store?action=info&idProduct=${product.idProduct}">Chi Tiết</button>
+                    </div>
+                </c:forEach>
+            </div>
+        </form>
     </div>
 
     <div id="productFemale">
         <h2>ĐỒ NỮ</h2>
+        <form method="get" action="store">
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <c:forEach var="product" items="${showListProduc}">
+                    <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box;">
+                        <img style="width: 100%; height: auto;" src="${product.image}" alt="${product.nameProduct}" />
+                        <h5 style="padding-top: 7px">${product.nameProduct}</h5>
+                        <p style="color: red">Giá: ${product.price}00 VNĐ</p>
+                        <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px" href="store?action=info&idProduct=${product.idProduct}">Chi Tiết</button>
+                    </div>
+                </c:forEach>
+            </div>
+        </form>
     </div>
 
     <div id="productChildren">
         <h2>ĐỒ TRẺ EM</h2>
+        <form method="get" action="store">
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <c:forEach var="product" items="${showListProduc}">
+                    <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box;">
+                        <img style="width: 100%; height: auto;" src="${product.image}" alt="${product.nameProduct}" />
+                        <h5 style="padding-top: 7px">${product.nameProduct}</h5>
+                        <p style="color: red">Giá: ${product.price}00 VNĐ</p>
+                        <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px" href="store?action=info&idProduct=${product.idProduct}">Chi Tiết</button>
+                    </div>
+                </c:forEach>
+            </div>
+        </form>
     </div>
 
 

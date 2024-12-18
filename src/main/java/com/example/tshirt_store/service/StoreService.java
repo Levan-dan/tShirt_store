@@ -1,11 +1,11 @@
 package com.example.tshirt_store.service;
 
+import com.example.tshirt_store.modle.Product;
 import com.example.tshirt_store.modle.User;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StoreService implements StoreServiceInterface {
 
@@ -70,5 +70,31 @@ public class StoreService implements StoreServiceInterface {
             e.getMessage();
         }
         return user;
+    }
+
+
+    private String queryGetProduct = "select * from product";
+
+    @Override
+    public List<Product> showProduct() {
+        List<Product> productList = new ArrayList<>();
+        try {
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(queryGetProduct);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt("idProduct");
+                String nameProduct = resultSet.getString("nameProduct");
+                String image = resultSet.getString("image");
+                String description = resultSet.getString("description");
+                double price = resultSet.getDouble("price");
+                int stock = resultSet.getInt("stock");
+                Product product = new Product(id, nameProduct, image, description, price, stock);
+                productList.add(product);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return productList;
     }
 }
