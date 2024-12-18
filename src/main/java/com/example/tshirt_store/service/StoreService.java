@@ -116,4 +116,30 @@ public class StoreService implements StoreServiceInterface {
         }
 
     }
+
+
+    private String queryFindByID = "SELECT * FROM shirt_store.product where idProduct = ?";
+
+    @Override
+    public Product findByIDProduct(int idProduct) {
+        Product product = null;
+        try{
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(queryFindByID);
+            preparedStatement.setInt(1, idProduct);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()){
+                int id = resultSet.getInt("idProduct");
+                String nameProduct = resultSet.getString("nameProduct");
+                String image = resultSet.getString("image");
+                String description = resultSet.getString("description");
+                double price = resultSet.getDouble("price");
+                int stock = resultSet.getInt("stock");
+                product = new Product(id, nameProduct, image, description, price, stock);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return product;
+    }
 }

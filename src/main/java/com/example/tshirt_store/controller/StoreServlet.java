@@ -188,6 +188,9 @@ public class StoreServlet extends HttpServlet {
             case "crud":
                 showCrud(request, response);
                 break;
+            case "edit":
+                findByIDAdmin(request, response);
+                break;
             default:
                 screenFirst(request, response);
                 break;
@@ -195,6 +198,21 @@ public class StoreServlet extends HttpServlet {
     }
 
 
+
+    public void findByIDAdmin(HttpServletRequest request , HttpServletResponse response){
+        try{
+            int id = Integer.parseInt(request.getParameter("idProduct"));
+            Product product = storeServiceInterface.findByIDProduct(id);
+            request.setAttribute("product", product);
+            RequestDispatcher requestDispatcher= request.getRequestDispatcher("view/adEdit.jsp");
+            requestDispatcher.forward(request, response);
+
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+
+    }
 
     public void showCrud(HttpServletRequest request, HttpServletResponse response){
         try{

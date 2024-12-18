@@ -12,4 +12,5 @@ public interface StoreServiceInterface {
     List<Product> showProduct();
     void addProduct(Product product);
 
+    Product findByIDProduct(int idProduct);
 }
