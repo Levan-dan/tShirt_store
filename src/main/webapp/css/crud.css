@@ -1,0 +1,126 @@
+body{
+    background-color: pink;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: auto;
+    font-family: Arial, sans-serif;
+}
+
+
+
+
+/* Định dạng tổng quan cho bảng */
+#tableProduct table {
+    width: 100%; /* Đặt bảng chiếm toàn bộ chiều rộng khung chứa */
+    border-collapse: collapse; /* Loại bỏ khoảng cách giữa các ô */
+    font-family: Arial, sans-serif; /* Font chữ */
+    background-color: #f9f9f9; /* Màu nền nhạt */
+}
+
+/* Định dạng tiêu đề của bảng */
+#tableProduct th {
+    background-color: #7c4dff; /* Màu nền tiêu đề */
+    color: white; /* Màu chữ tiêu đề */
+    font-weight: bold; /* Chữ đậm */
+    padding: 12px; /* Khoảng cách nội dung */
+    text-align: center; /* Canh giữa nội dung */
+    border: 1px solid #ddd; /* Đường viền */
+}
+
+/* Định dạng hàng của bảng */
+#tableProduct td {
+    border: 1px solid #ddd; /* Đường viền ô */
+    padding: 10px; /* Khoảng cách nội dung */
+    text-align: center; /* Canh giữa nội dung */
+    color: #333; /* Màu chữ */
+}
+
+/* Định dạng màu nền cho các hàng xen kẽ */
+#tableProduct tr:nth-child(even) {
+    background-color: #f2f2f2; /* Màu nền nhạt cho các hàng chẵn */
+}
+
+#tableProduct tr:nth-child(odd) {
+    background-color: #ffffff; /* Màu nền trắng cho các hàng lẻ */
+}
+
+/* Hiệu ứng hover khi di chuột qua hàng */
+#tableProduct tr:hover {
+    background-color: #e6f7ff; /* Màu nền khi hover */
+    cursor: pointer; /* Con trỏ chuột chuyển thành dạng tay */
+}
+
+/* Định dạng hình ảnh trong bảng */
+#tableProduct td img {
+    max-width: 120px; /* Đặt chiều rộng tối đa cho hình ảnh */
+    max-height: 120px; /* Đặt chiều cao tối đa cho hình ảnh */
+    border-radius: 5px; /* Bo góc hình ảnh */
+}
+
+/* Định dạng tổng thể cho bảng */
+#tableProduct {
+    margin: 20px auto; /* Căn giữa bảng */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng cho bảng */
+    border-radius: 10px; /* Bo góc bảng */
+    overflow: hidden; /* Đảm bảo bảng không bị tràn */
+}
+
+
+#khungAdd {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+#khungAdd h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+#khungAdd input,
+#khungAdd textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#khungAdd input:focus,
+#khungAdd textarea:focus {
+    outline: none;
+    border-color: #7c4dff;
+    box-shadow: 0 0 5px rgba(124, 77, 255, 0.5);
+}
+
+#khungAdd button {
+    width: 100%;
+    padding: 10px;
+    background-color: #7c4dff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+#khungAdd button:hover {
+    background-color: #5a36cc;
+}
+
+#khungAdd textarea {
+    height: 80px;
+    resize: none;
+}
