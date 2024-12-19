@@ -16,13 +16,13 @@
 
 <div class="product-details">
     <img class="product-image"
-         src="https://dugarcocollection.com.vn/media/37117/catalog/Thi%E1%BA%BFt%20k%E1%BA%BF%20ch%C6%B0a%20c%C3%B3%20t%C3%AAn%20(3).png"
+         src="${productInfo.image}"
          alt="Product Image">
 
     <div class="product-info">
 
         <div id="nameAndEvaluate">
-            <h3 class="product-title">Tên sản phẩm</h3>
+            <h3 class="product-title">${productInfo.nameProduct}</h3>
 
             <div id="Evaluate">
                 <img src="https://png.pngtree.com/png-vector/20220926/ourmid/pngtree-shiny-gold-star-clipart-illustration-design-png-image_6216956.png">
@@ -35,23 +35,22 @@
 
 
         <div style="text-align: left; width: 400px;  display: flex; flex-direction: column; gap: 10px; ">
-            <p class="product-price">Giá: 500,000 VND</p>
-            <p class="product-stock">Số lượng trong kho: 20</p>
+            <p class="product-price">Giá: ${productInfo.price}00 VND</p>
+            <p class="product-stock">Số lượng trong kho: ${productInfo.stock} chiếc</p>
 
             <div class="product-quantity">
                 <label for="quantity" style="font-weight: bold;">Chọn số lượng:</label>
                 <input id="quantity" name="quantity" type="number" min="1" max="20" value="1" style="width: 80px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
             </div>
 
-            <area class="product-description">
-            Mô tả: Đây là một sản phẩm chất lượng cao, thích hợp cho mọi lứa tuổi hahg jglja jfgogh dlghrog </area>
+            <area class="product-description">Mô tả: ${productInfo.description} </area>
 
 
         </div>
 
         <div class="product-buttons">
-            <button class="btn add-to-cart">Thêm vào giỏ hàng</button>
-            <button class="btn buy-now">Mua hàng</button>
+            <button class="btn add-to-cart"><a href="store?action=addToCart">Thêm vào giỏ hàng</a></button>
+            <button class="btn buy-now"><a href="store?action=buy">Mua hàng</a></button>
         </div>
 
     </div>

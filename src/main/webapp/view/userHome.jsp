@@ -73,83 +73,73 @@
 
     <div id="productNew">
         <h2 style="padding-top: 10px">HÀNG MỚI</h2>
-        <form method="get" >
             <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
                 <c:forEach var="product" items="${showListProduc}">
                     <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box;  box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4);">
                         <img id="thu" style="width: 100%; height: 430px;" src="${product.image}" alt="${product.nameProduct}" />
                         <h5 style="padding-top: 7px">${product.nameProduct}</h5>
                         <p style="color: red">Giá: ${product.price}00 VNĐ</p>
-                        <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px" ><a href="store?action=info&idProduct=${product.idProduct}" style="color: white">Chi Tiết</a></button>
+                        <button  style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px; font-size: 19px" ><a href="store?action=info&idProduct=${product.idProduct}" style="color: white">Chi Tiết</a></button>
                     </div>
                 </c:forEach>
             </div>
-        </form>
 
     </div>
 
     <div style="padding-top: 10px" id="bestSelling">
         <h2>BÁN CHẠY</h2>
-        <form method="get" action="store">
             <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
                 <c:forEach var="product" items="${showListProduc}">
                     <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box;">
                         <img style="width: 100%; height: 430px;" src="${product.image}" alt="${product.nameProduct}" />
                         <h5 style="padding-top: 7px">${product.nameProduct}</h5>
                         <p style="color: red">Giá: ${product.price}00 VNĐ</p>
-                        <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px" ><a href="store?action=info&idProduct=${product.idProduct}" style="color: white">Chi Tiết</a></button>
+                        <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px; font-size: 19px" ><a href="store?action=info&idProduct=${product.idProduct}" style="color: white">Chi Tiết</a></button>
                     </div>
                 </c:forEach>
             </div>
-        </form>
     </div>
 
     <div style="padding-top: 10px" id="productMale">
         <h2>ĐỒ NAM</h2>
-        <form method="get" action="store">
             <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
                 <c:forEach var="product" items="${showListProduc}">
                     <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box;">
                         <img style="width: 100%; height: 430px;" src="${product.image}" alt="${product.nameProduct}" />
                         <h5 style="padding-top: 7px">${product.nameProduct}</h5>
                         <p style="color: red">Giá: ${product.price}00 VNĐ</p>
-                        <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px" ><a href="store?action=info&idProduct=${product.idProduct}" style="color: white">Chi Tiết</a></button>
+                        <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px; font-size: 19px" ><a href="store?action=info&idProduct=${product.idProduct}" style="color: white">Chi Tiết</a></button>
                     </div>
                 </c:forEach>
             </div>
-        </form>
     </div>
 
     <div style="padding-top: 10px" id="productFemale">
         <h2>ĐỒ NỮ</h2>
-        <form method="get" action="store">
             <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
                 <c:forEach var="product" items="${showListProduc}">
                     <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box;">
                         <img style="width: 100%; height: 430px;" src="${product.image}" alt="${product.nameProduct}" />
                         <h5 style="padding-top: 7px">${product.nameProduct}</h5>
                         <p style="color: red">Giá: ${product.price}00 VNĐ</p>
-                        <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px" ><a href="store?action=info&idProduct=${product.idProduct}" style="color: white">Chi Tiết</a></button>
+                        <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px; font-size: 19px" ><a href="store?action=info&idProduct=${product.idProduct}" style="color: white">Chi Tiết</a></button>
                     </div>
                 </c:forEach>
             </div>
-        </form>
     </div>
 
     <div style="padding-top: 10px" id="productChildren">
         <h2>ĐỒ TRẺ EM</h2>
-        <form method="get" action="store">
             <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
                 <c:forEach var="product" items="${showListProduc}">
                     <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box;">
                         <img style="width: 100%; height: 430px;" src="${product.image}" alt="${product.nameProduct}" />
                         <h5 style="padding-top: 7px">${product.nameProduct}</h5>
                         <p style="color: red">Giá: ${product.price}00 VNĐ</p>
-                        <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px" ><a href="store?action=info&idProduct=${product.idProduct}" style="color: white">Chi Tiết</a></button>
+                        <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px; font-size: 19px" ><a href="store?action=info&idProduct=${product.idProduct}" style="color: white">Chi Tiết</a></button>
                     </div>
                 </c:forEach>
             </div>
-        </form>
     </div>
 
 
