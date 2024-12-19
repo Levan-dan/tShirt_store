@@ -50,12 +50,19 @@ body {
     margin-right: 5px;
 }
 
-.product-price,
-.product-stock,
-.product-description {
+.product-price {
     font-size: 18px;
-    color: #333;
     margin: 8px 0;
+}
+
+.product-stock {
+    font-size: 15px;
+    color: gray;
+}
+
+.product-description {
+    font-size: 15px;
+    color: gray;
 }
 
 .product-price {
@@ -88,6 +95,11 @@ body {
     width: 180px;
     background-color: #ff82ab;
 }
+.add-to-cart a{
+    text-decoration: none;
+    color: white;
+
+}
 
 .add-to-cart:hover {
     background-color: #e75480;
@@ -96,6 +108,10 @@ body {
 .buy-now {
     width: 180px;
     background-color: #ff69b4;
+}
+.buy-now a{
+    text-decoration: none;
+    color: white;
 }
 
 .buy-now:hover {

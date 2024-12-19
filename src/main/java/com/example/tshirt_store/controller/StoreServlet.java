@@ -223,9 +223,9 @@ public class StoreServlet extends HttpServlet {
             case "delete":
                 deleteProductAdmin(request, response);
                 break;
-            default:
-                screenFirst(request, response);
-                break;
+//            default:
+//                screenFirst(request, response);
+//                break;
         }
     }
 
@@ -234,6 +234,9 @@ public class StoreServlet extends HttpServlet {
 
     public void showInfoProduct(HttpServletRequest request, HttpServletResponse response){
         try{
+            int id = Integer.parseInt(request.getParameter("idProduct"));
+            Product product = storeServiceInterface.findByIDProduct(id);
+            request.setAttribute("productInfo", product);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/productInfo.jsp");
             requestDispatcher.forward(request, response);
         } catch (ServletException e) {
