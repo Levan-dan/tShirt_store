@@ -44,6 +44,9 @@ public class StoreServlet extends HttpServlet {
             case "edit":
                 editProductAdmin(request, response);
                 break;
+            case "search":
+                searchProduct(request, response);
+                break;
             default:
                 showCrud(request, response);
                 break;
@@ -51,6 +54,20 @@ public class StoreServlet extends HttpServlet {
         }
     }
 
+
+    public void searchProduct(HttpServletRequest request, HttpServletResponse response){
+        try{
+            String nameProduct = request.getParameter("tenSanPham");
+            List<Product> listProduct = storeServiceInterface.findByProductName(nameProduct);
+            request.setAttribute("showListProduc", listProduct);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/userHome.jsp");
+            requestDispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public void editProductAdmin(HttpServletRequest request, HttpServletResponse response){
         try{
@@ -223,6 +240,9 @@ public class StoreServlet extends HttpServlet {
             case "delete":
                 deleteProductAdmin(request, response);
                 break;
+            case "home":
+                backHome(request, response);
+                break;
 //            default:
 //                screenFirst(request, response);
 //                break;
@@ -231,6 +251,19 @@ public class StoreServlet extends HttpServlet {
 
 
 
+    public void backHome(HttpServletRequest request , HttpServletResponse response){
+        try{
+            List<Product> listProduct = storeServiceInterface.showProduct();
+            request.setAttribute("showListProduc", listProduct);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/userHome.jsp");
+            requestDispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
     public void showInfoProduct(HttpServletRequest request, HttpServletResponse response){
         try{
