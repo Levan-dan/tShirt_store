@@ -18,4 +18,6 @@ public interface StoreServiceInterface {
 
     void deleteProduct(int idProduct);
 
+    List<Product> findByProductName(String nameProduct);
+
 }

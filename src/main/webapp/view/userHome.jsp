@@ -16,10 +16,11 @@
 <body>
 <div id="khungCustomer">
     <div id="header" style="position: fixed; width: 100%; z-index: 1000; ">
-        <img id="logoImage"
+        <img  id="logoImage"
              src="https://file.hstatic.net/1000001117/file/logo_black_doc_dc234adc40f541e5bbc39cf289889b3e.png">
         <div id="menu">
             <ul>
+                <li><a href="store?action=home">Toàn bộ</a></li>
                 <li><a href="#productNew">Hàng mới</a></li>
                 <li><a href="#bestSelling">Bán chạy</a></li>
                 <li><a href="#productMale">Nam</a></li>
@@ -27,10 +28,14 @@
                 <li><a href="#productChildren">Trẻ em</a></li>
             </ul>
         </div>
+
+
         <form action="store?action=search" method="post">
-            <input id="search-input" type="text" name="sanPham" required placeholder="Tìm kiếm..."/>
+            <input id="search-input" type="text" name="tenSanPham" required placeholder="Tìm kiếm..."/>
             <button id="search-button" type="submit">Tìm kiếm</button>
         </form>
+
+
         <img class="logoCart" src="https://bizweb.dktcdn.net/100/344/969/themes/705911/assets/carts.svg?1723002522273">
         <img class="logoCart" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1656px-User_icon-cp.svg.png">
     </div>
@@ -280,7 +285,7 @@
             >
                 © 2020 Copyright:
                 <a class="text-dark" href="https://mdbootstrap.com/"
-                >MDBootstrap.com</a
+                >Haravan.com</a
                 >
             </div>
             <!-- Copyright -->
