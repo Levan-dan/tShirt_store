@@ -211,6 +211,9 @@ public class StoreServlet extends HttpServlet {
             case "login":
                 showLogin(request, response);
                 break;
+            case "info":
+                showInfoProduct(request, response);
+                break;
             case "crud":
                 showCrud(request, response);
                 break;
@@ -228,6 +231,19 @@ public class StoreServlet extends HttpServlet {
 
 
 
+
+    public void showInfoProduct(HttpServletRequest request, HttpServletResponse response){
+        try{
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/productInfo.jsp");
+            requestDispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
     public void deleteProductAdmin(HttpServletRequest request, HttpServletResponse response){
         try{
             int id = Integer.parseInt(request.getParameter("idProduct"));
