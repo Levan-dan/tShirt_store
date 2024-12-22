@@ -36,7 +36,7 @@
         </form>
 
 
-        <img class="logoCart" src="https://bizweb.dktcdn.net/100/344/969/themes/705911/assets/carts.svg?1723002522273">
+        <a href="store?action=cart"><img class="logoCart" src="https://bizweb.dktcdn.net/100/344/969/themes/705911/assets/carts.svg?1723002522273"></a>
         <img class="logoCart" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/User_icon-cp.svg/1656px-User_icon-cp.svg.png">
     </div>
 
