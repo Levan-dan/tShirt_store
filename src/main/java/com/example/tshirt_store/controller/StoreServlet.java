@@ -243,6 +243,9 @@ public class StoreServlet extends HttpServlet {
             case "home":
                 backHome(request, response);
                 break;
+            case "cart":
+                showCart(request, response);
+                break;
 //            default:
 //                screenFirst(request, response);
 //                break;
@@ -250,6 +253,19 @@ public class StoreServlet extends HttpServlet {
     }
 
 
+
+    public void showCart(HttpServletRequest request, HttpServletResponse response){
+        try{
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/cart.jsp");
+            requestDispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
 
     public void backHome(HttpServletRequest request , HttpServletResponse response){
         try{
