@@ -15,15 +15,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-document.addEventListener("click", function (event) {
-    const menu = document.getElementById('menuList');
-    const menuIcon = event.target.closest('.logoCart');
-    const menuContainer = event.target.closest('.menu-container');
+// function toggleMenu() {
+//     const menu = document.getElementById('menuList');
+//     menu.classList.toggle('hidden'); // Chuyển đổi giữa hiển thị và ẩn
+// }
+//
+// // Đóng menu khi nhấn ngoài vùng menu
+// document.addEventListener('click', function (event) {
+//     const menu = document.getElementById('menuList');
+//     const isClickInside = event.target.closest('.menu-container');
+//
+//     if (!isClickInside) {
+//         menu.classList.add('hidden'); // Ẩn menu nếu nhấn ngoài
+//     }
+// });
+//
 
-    if (menuIcon) {
-        menu.classList.toggle('hidden');
-    } else if (!menuContainer) {
+
+
+function toggleMenu() {
+    const menu = document.getElementById('menuList');
+    menu.classList.toggle('hidden'); // Chuyển đổi hiển thị/ẩn menu
+}
+
+// Ẩn menu khi nhấn ngoài vùng menu
+document.addEventListener('click', function (event) {
+    const menu = document.getElementById('menuList');
+    const isClickInside = event.target.closest('.menu-container') || event.target.closest('.logoCart');
+
+    if (!isClickInside) {
         menu.classList.add('hidden');
     }
 });
-

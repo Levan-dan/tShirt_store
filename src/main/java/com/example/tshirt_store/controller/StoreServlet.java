@@ -266,6 +266,9 @@ public class StoreServlet extends HttpServlet {
             case "home":
                 backHome(request, response);
                 break;
+            case "logOutUser":
+                logOut(request, response);
+                break;
 //            default:
 //                screenFirst(request, response);
 //                break;

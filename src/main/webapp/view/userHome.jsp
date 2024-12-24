@@ -38,21 +38,23 @@
 
         <a href="cart?action=cart"><img class="logoCart"
                                         src="https://bizweb.dktcdn.net/100/344/969/themes/705911/assets/carts.svg?1723002522273"></a>
-        <div class="menu-container" style=" text-align: center;">
-            <img class="logoCart"
-                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png"
-                 alt="Menu"
-                 onclick="toggleMenu(event)">
-            <div id="menuList" class="menu hidden">
+
+
+
+        <img class="logoCart"
+             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png"
+             alt="Menu"
+             onclick="toggleMenu()">
+
+        <div   class="menu-container" >
+            <div id="menuList"  class="menu hidden" style="text-align: center">
                 <ul>
-                    <li><a href="userInfo.jsp">Thông tin người dùng</a></li>
-                    <li><a href="yourOrders.jsp">Đơn hàng của bạn</a></li>
-                    <li><a href="store?action=logOut">Đăng xuất</a></li>
+                    <li><a href="" >Thông tin người dùng</a></li>
+                    <li><a href="">Đơn hàng của bạn</a></li>
+                    <li><a href="store?action=logOutUser">Đăng xuất</a></li>
                 </ul>
             </div>
         </div>
-
-
 
     </div>
 
@@ -95,7 +97,8 @@
         <!-- Bootstrap JS -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <!-- Custom JS -->
-        <script src="javascrip/scriptsUserHome.js"></script>
+        <script src="javascrip/scriptsUserHome.js">
+        </script>
     </div>
 
     <div id="productNew">
@@ -120,7 +123,7 @@
         <h2>BÁN CHẠY</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
             <c:forEach var="product" items="${showListProduc}">
-                <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box;">
+                <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4)">
                     <img style="width: 100%; height: 430px;" src="${product.image}" alt="${product.nameProduct}"/>
                     <h5 style="padding-top: 7px">${product.nameProduct}</h5>
                     <p style="color: red">Giá: ${product.price}00 VNĐ</p>
@@ -136,7 +139,7 @@
         <h2>ĐỒ NAM</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
             <c:forEach var="product" items="${showListProduc}">
-                <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box;">
+                <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4)">
                     <img style="width: 100%; height: 430px;" src="${product.image}" alt="${product.nameProduct}"/>
                     <h5 style="padding-top: 7px">${product.nameProduct}</h5>
                     <p style="color: red">Giá: ${product.price}00 VNĐ</p>
@@ -152,7 +155,7 @@
         <h2>ĐỒ NỮ</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
             <c:forEach var="product" items="${showListProduc}">
-                <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box;">
+                <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4)">
                     <img style="width: 100%; height: 430px;" src="${product.image}" alt="${product.nameProduct}"/>
                     <h5 style="padding-top: 7px">${product.nameProduct}</h5>
                     <p style="color: red">Giá: ${product.price}00 VNĐ</p>
@@ -168,7 +171,7 @@
         <h2>ĐỒ TRẺ EM</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
             <c:forEach var="product" items="${showListProduc}">
-                <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box;">
+                <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4)">
                     <img style="width: 100%; height: 430px;" src="${product.image}" alt="${product.nameProduct}"/>
                     <h5 style="padding-top: 7px">${product.nameProduct}</h5>
                     <p style="color: red">Giá: ${product.price}00 VNĐ</p>
