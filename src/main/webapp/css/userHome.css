@@ -63,9 +63,10 @@ body {
     border-radius: 3px;
 }
 
-.logoUser{
-    width: 50px;
-    height: 50px;
+.logoCart{
+    margin-right: 45px;
+    width: 35px;
+    height: 35px;
     object-fit: contain;
     cursor: pointer;
 }
@@ -98,6 +99,10 @@ body {
 
 
 
+
+.menu.hidden {
+    display: none;
+}
 .carousel-inner img {
     padding-top: 5px;
     height: 600px;
@@ -146,80 +151,66 @@ img {
 
 
 
-/* Container chung cho menu */
+
+
+
+
+
 .menu-container {
-    position: relative;
-    display: inline-block;
-    text-align: center;
+    position: fixed; /* Giữ menu cố định khi cuộn */
+    top: 20px; /* Điều chỉnh khoảng cách từ đỉnh */
+    right: 20px; /* Căn chỉnh cách mép phải */
+    z-index: 1000; /* Đảm bảo menu luôn hiển thị trên các phần tử khác */
 }
-
-/* Icon menu */
-.logoCart {
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-    margin: 10px;
-}
-
-/* Menu chính */
-.menu {
-    position: absolute;
-    top: 50px;
-    right: 0;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 200px;
-    padding: 10px 0;
-    z-index: 1000;
-    display: none;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-/* Hiển thị menu */
 .menu.hidden {
     display: none;
 }
 
-.menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.menu li {
-    padding: 12px 20px;
-    border-bottom: 1px solid #f1f1f1;
+/* Hiển thị menu */
+.menu {
+    position: absolute;
+    top: 60px; /* Điều chỉnh vị trí dọc của menu */
+    left: 50%; /* Canh giữa so với hình ảnh */
+    transform: translateX(-100%);
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
     text-align: left;
+    width: 200px; /* Độ rộng menu */
 }
 
-.menu li:last-child {
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+}
+
+.menu ul li {
+    border-bottom: 1px solid #ddd;
+    padding: 8px 12px;
+}
+
+.menu ul li:last-child {
     border-bottom: none;
 }
 
-/* Style cho liên kết */
-.menu li a {
+.menu ul li a {
     text-decoration: none;
     color: #333;
-    font-size: 14px;
+    font-size: 16px;
     display: block;
-    transition: color 0.3s;
+    transition: background-color 0.3s ease;
+    font-family: Arial, sans-serif; /* Font chữ */
 }
 
-.menu li a:hover {
-    color: #4CAF50;
+.menu ul li a:hover {
+    background-color: #f4f4f4;
+    color: #007bff;
 }
 
-/* Hiệu ứng khi xuất hiện */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+#menuList li a:active {
+    background-color: limegreen; /* Màu nền khi nhấn */
+    color: white;
 }
-
