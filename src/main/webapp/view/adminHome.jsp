@@ -25,7 +25,9 @@
 
             </ul>
         <div>
-            <button id="logout" href="store/action=logOut">Đăng xuất</button>
+            <form action="store?action=logOut" method="post">
+                <button id="logout">Đăng xuất</button>
+            </form>
         </div>
     </div>
 

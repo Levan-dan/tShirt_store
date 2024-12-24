@@ -13,3 +13,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
+
+document.addEventListener("click", function (event) {
+    const menu = document.getElementById('menuList');
+    const menuIcon = event.target.closest('.logoCart');
+    const menuContainer = event.target.closest('.menu-container');
+
+    if (menuIcon) {
+        menu.classList.toggle('hidden');
+    } else if (!menuContainer) {
+        menu.classList.add('hidden');
+    }
+});
+

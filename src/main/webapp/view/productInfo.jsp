@@ -13,48 +13,52 @@
     <link rel="stylesheet" href="css/productInfo.css">
 </head>
 <body>
-
-<div class="product-details">
-    <img class="product-image"
-         src="${productInfo.image}"
-         alt="Product Image">
-
-    <div class="product-info">
-
-        <div id="nameAndEvaluate">
-            <h3 class="product-title">${productInfo.nameProduct}</h3>
-
-            <div id="Evaluate">
-                <img src="https://png.pngtree.com/png-vector/20220926/ourmid/pngtree-shiny-gold-star-clipart-illustration-design-png-image_6216956.png">
-                <img src="https://png.pngtree.com/png-vector/20220926/ourmid/pngtree-shiny-gold-star-clipart-illustration-design-png-image_6216956.png">
-                <img src="https://png.pngtree.com/png-vector/20220926/ourmid/pngtree-shiny-gold-star-clipart-illustration-design-png-image_6216956.png">
-                <img src="https://png.pngtree.com/png-vector/20220926/ourmid/pngtree-shiny-gold-star-clipart-illustration-design-png-image_6216956.png">
-                <img src="https://png.pngtree.com/png-vector/20220926/ourmid/pngtree-shiny-gold-star-clipart-illustration-design-png-image_6216956.png">
-            </div>
-        </div>
+<form action="cart?action=addToCart&idProduct=${productInfo.idProduct}" method="post">
 
 
-        <div style="text-align: left; width: 400px;  display: flex; flex-direction: column; gap: 10px; ">
-            <p class="product-price">Giá: ${productInfo.price}00 VND</p>
-            <p class="product-stock">Số lượng trong kho: ${productInfo.stock} chiếc</p>
+    <div class="product-details">
+        <img class="product-image"
+             src="${productInfo.image}"
+             alt="Product Image">
 
-            <div class="product-quantity">
-                <label for="quantity" style="font-weight: bold;">Chọn số lượng:</label>
-                <input id="quantity" name="quantity" type="number" min="1" max="20" value="1" style="width: 80px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+        <div class="product-info">
+
+            <div id="nameAndEvaluate">
+                <h3 class="product-title">${productInfo.nameProduct}</h3>
+
+                <div id="Evaluate">
+                    <img src="https://png.pngtree.com/png-vector/20220926/ourmid/pngtree-shiny-gold-star-clipart-illustration-design-png-image_6216956.png">
+                    <img src="https://png.pngtree.com/png-vector/20220926/ourmid/pngtree-shiny-gold-star-clipart-illustration-design-png-image_6216956.png">
+                    <img src="https://png.pngtree.com/png-vector/20220926/ourmid/pngtree-shiny-gold-star-clipart-illustration-design-png-image_6216956.png">
+                    <img src="https://png.pngtree.com/png-vector/20220926/ourmid/pngtree-shiny-gold-star-clipart-illustration-design-png-image_6216956.png">
+                    <img src="https://png.pngtree.com/png-vector/20220926/ourmid/pngtree-shiny-gold-star-clipart-illustration-design-png-image_6216956.png">
+                </div>
             </div>
 
-            <area class="product-description">Mô tả: ${productInfo.description} </area>
 
+            <div style="text-align: left; width: 400px;  display: flex; flex-direction: column; gap: 10px; ">
+                <p class="product-price">Giá: ${productInfo.price}00 VND</p>
+                <p class="product-stock">Số lượng trong kho: ${productInfo.stock} chiếc</p>
+
+                <div class="product-quantity">
+                    <label for="quantity" style="font-weight: bold;">Chọn số lượng:</label>
+                    <input id="quantity" name="quantity" type="number" min="1" max="${productInfo.stock}" value="1"
+                           style="width: 80px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+
+                <area class="product-description">
+                Mô tả: ${productInfo.description} </area>
+
+
+            </div>
+
+            <div class="product-buttons">
+                <button type="submit" class="btn add-to-cart"><a>Thêm vào giỏ hàng</a></button>
+                <button class="btn buy-now"><a href="store?action=buy">Mua hàng</a></button>
+            </div>
 
         </div>
-
-        <div class="product-buttons">
-            <button class="btn add-to-cart"><a href="store?action=addToCart">Thêm vào giỏ hàng</a></button>
-            <button class="btn buy-now"><a href="store?action=buy">Mua hàng</a></button>
-        </div>
-
     </div>
-</div>
-
+</form>
 </body>
 </html>

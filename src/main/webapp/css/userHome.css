@@ -49,7 +49,6 @@ body {
 
 #search-input {
     margin-top: 17px;
-    width: 300px;
     height: 26px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -62,12 +61,6 @@ body {
     height: 26px;
     border: 1px solid #ccc;
     border-radius: 3px;
-}
-.logoCart {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    cursor: pointer;
 }
 
 .logoUser{
@@ -148,3 +141,85 @@ img {
 #productNew, #productChildren, #productFemale, #productMale, #bestSelling{
     scroll-margin-top: 75px; /* Cách header một khoảng 5px */
 }
+
+
+
+
+
+/* Container chung cho menu */
+.menu-container {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Icon menu */
+.logoCart {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+/* Menu chính */
+.menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    padding: 10px 0;
+    z-index: 1000;
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Hiển thị menu */
+.menu.hidden {
+    display: none;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    padding: 12px 20px;
+    border-bottom: 1px solid #f1f1f1;
+    text-align: left;
+}
+
+.menu li:last-child {
+    border-bottom: none;
+}
+
+/* Style cho liên kết */
+.menu li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    display: block;
+    transition: color 0.3s;
+}
+
+.menu li a:hover {
+    color: #4CAF50;
+}
+
+/* Hiệu ứng khi xuất hiện */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
