@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -42,13 +43,16 @@ public class CartServlet extends HttpServlet {
         }
     }
 
+
+
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
-        int id = Integer.parseInt(request.getParameter("idProduct"));
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
+
+
 
         List<CartProduct> cartProducts = (List<CartProduct>) request.getSession().getAttribute("cart");
 
@@ -57,15 +61,36 @@ public class CartServlet extends HttpServlet {
         }
 
         String action = request.getParameter("action");
+        System.out.println(action);
         if (action == null) {
             action = "";}
         switch (action) {
             case "addToCart":
+                int id = Integer.parseInt(request.getParameter("idProduct"));
+                int quantity = Integer.parseInt(request.getParameter("quantity"));
                 addToCart(request,response,id,quantity,cartProducts);
+                break;
+            case "delete":
+                int removeId = Integer.parseInt(request.getParameter("idProduct"));
+                removeFromCart(request, response, removeId, cartProducts);
                 break;
         }
     }
 
+
+    private void removeFromCart(HttpServletRequest request, HttpServletResponse response, int id, List<CartProduct> cartProducts) throws IOException {
+        cartProducts.removeIf(item -> item.getIdProduct() == id);
+
+        // Cập nhật lại session
+        request.getSession().setAttribute("cart", cartProducts);
+        response.sendRedirect("cart?action=cart");
+        try {
+            response.setStatus(HttpServletResponse.SC_OK); // Phản hồi thành công
+        } catch (Exception e) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR); // Phản hồi lỗi
+            e.printStackTrace();
+        }
+    }
     public void showCart(HttpServletRequest request, HttpServletResponse response){
         try{
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/cart.jsp");
@@ -93,7 +118,6 @@ public class CartServlet extends HttpServlet {
         try{
 
             Product product = storeServiceInterface.findByIDProduct(id);
-            System.out.println("add to cart" + product);
             boolean exits = false;
 
             for(CartProduct item : cartProducts){
@@ -108,7 +132,6 @@ public class CartServlet extends HttpServlet {
                 CartProduct cartProduct = new CartProduct(id, product.getNameProduct(), product.getImage(), product.getPrice(), quantity);
                 cartProducts.add(cartProduct);
             }
-            System.out.println(cartProducts);
             request.getSession().setAttribute("cart", cartProducts);
 
             response.sendRedirect("cart");
