@@ -5,6 +5,8 @@
   Time: 6:22 CH
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -109,9 +111,13 @@
                     <img id="thu" style="width: 100%; height: 430px;" src="${product.image}"
                          alt="${product.nameProduct}"/>
                     <h5 style="padding-top: 7px">${product.nameProduct}</h5>
-                    <p style="color: red">Giá: ${product.price}00 VNĐ</p>
-                    <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px; font-size: 19px">
-                        <a href="store?action=info&idProduct=${product.idProduct}" style="color: white">Chi Tiết</a>
+<%--                    <p style="color: red">Giá: ${product.price}00 VNĐ</p>--%>
+                    <p style="color: red">Giá: <fmt:formatNumber value="${product.price}" type="number" pattern="#,###"/> VNĐ</p>
+
+
+
+                    <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 40px; font-size: 19px;margin-bottom: 10px; display: inline-flex; justify-content: center; align-items: center;">
+                        <a href="store?action=info&idProduct=${product.idProduct}" style="color: white; text-decoration: none;">Chi Tiết</a>
                     </button>
                 </div>
             </c:forEach>
@@ -126,9 +132,12 @@
                 <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4)">
                     <img style="width: 100%; height: 430px;" src="${product.image}" alt="${product.nameProduct}"/>
                     <h5 style="padding-top: 7px">${product.nameProduct}</h5>
-                    <p style="color: red">Giá: ${product.price}00 VNĐ</p>
-                    <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px; font-size: 19px">
-                        <a href="store?action=info&idProduct=${product.idProduct}" style="color: white">Chi Tiết</a>
+<%--                    <p style="color: red">Giá: ${product.price}00 VNĐ</p>--%>
+                    <p style="color: red">Giá: <fmt:formatNumber value="${product.price}" type="number" pattern="#,###"/> VNĐ</p>
+
+
+                    <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 40px; font-size: 19px;margin-bottom: 10px; display: inline-flex; justify-content: center; align-items: center;">
+                        <a href="store?action=info&idProduct=${product.idProduct}" style="color: white; text-decoration: none;">Chi Tiết</a>
                     </button>
                 </div>
             </c:forEach>
@@ -142,9 +151,12 @@
                 <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4)">
                     <img style="width: 100%; height: 430px;" src="${product.image}" alt="${product.nameProduct}"/>
                     <h5 style="padding-top: 7px">${product.nameProduct}</h5>
-                    <p style="color: red">Giá: ${product.price}00 VNĐ</p>
-                    <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px; font-size: 19px">
-                        <a href="store?action=info&idProduct=${product.idProduct}" style="color: white">Chi Tiết</a>
+<%--                    <p style="color: red">Giá: ${product.price}00 VNĐ</p>--%>
+                    <p style="color: red">Giá: <fmt:formatNumber value="${product.price}" type="number" pattern="#,###"/> VNĐ</p>
+
+
+                    <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 40px; font-size: 19px;margin-bottom: 10px; display: inline-flex; justify-content: center; align-items: center;">
+                        <a href="store?action=info&idProduct=${product.idProduct}" style="color: white; text-decoration: none;">Chi Tiết</a>
                     </button>
                 </div>
             </c:forEach>
@@ -158,9 +170,12 @@
                 <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4)">
                     <img style="width: 100%; height: 430px;" src="${product.image}" alt="${product.nameProduct}"/>
                     <h5 style="padding-top: 7px">${product.nameProduct}</h5>
-                    <p style="color: red">Giá: ${product.price}00 VNĐ</p>
-                    <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px; font-size: 19px">
-                        <a href="store?action=info&idProduct=${product.idProduct}" style="color: white">Chi Tiết</a>
+<%--                    <p style="color: red">Giá: ${product.price}00 VNĐ</p>--%>
+                    <p style="color: red">Giá: <fmt:formatNumber value="${product.price}" type="number" pattern="#,###"/> VNĐ</p>
+
+
+                    <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 40px; font-size: 19px;margin-bottom: 10px; display: inline-flex; justify-content: center; align-items: center; ">
+                        <a href="store?action=info&idProduct=${product.idProduct}" style="color: white; text-decoration: none;">Chi Tiết</a>
                     </button>
                 </div>
             </c:forEach>
@@ -174,9 +189,12 @@
                 <div style="border: 1px black solid; width: 450px; text-align: center; padding: 10px; box-sizing: border-box; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4)">
                     <img style="width: 100%; height: 430px;" src="${product.image}" alt="${product.nameProduct}"/>
                     <h5 style="padding-top: 7px">${product.nameProduct}</h5>
-                    <p style="color: red">Giá: ${product.price}00 VNĐ</p>
-                    <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 30px; font-size: 19px">
-                        <a href="store?action=info&idProduct=${product.idProduct}" style="color: white">Chi Tiết</a>
+<%--                    <p style="color: red">Giá: ${product.price}00 VNĐ</p>--%>
+                    <p style="color: red">Giá: <fmt:formatNumber value="${product.price}" type="number" pattern="#,###"/> VNĐ</p>
+
+
+                    <button style="background-color: palevioletred; border-radius: 5px; color: white; width: 120px; box-shadow: 0 4px 6px rgba(0, 0.3, 0.4, 0.4); height: 40px; font-size: 19px;margin-bottom: 10px; display: inline-flex; justify-content: center; align-items: center;">
+                        <a href="store?action=info&idProduct=${product.idProduct}" style="color: white; text-decoration: none;">Chi Tiết</a>
                     </button>
                 </div>
             </c:forEach>

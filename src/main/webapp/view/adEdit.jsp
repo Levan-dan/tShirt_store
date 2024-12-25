@@ -18,7 +18,7 @@
     <div id="khungEdit">
         <div class="form-group">
             <label >Mã sản phẩm</label>
-            <input type="text" id="idProduct" name="idProduct" value="${product.idProduct}" readonly/>
+            <input type="text" id="idProduct" name="idProduct" value="${product.idProduct}" required readonly/>
         </div>
         <div class="form-group">
             <label >Tên sản phẩm</label>
