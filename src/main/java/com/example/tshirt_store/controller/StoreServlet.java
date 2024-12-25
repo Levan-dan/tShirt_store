@@ -1,5 +1,6 @@
 package com.example.tshirt_store.controller;
 
+import com.example.tshirt_store.modle.CartProduct;
 import com.example.tshirt_store.modle.Product;
 import com.example.tshirt_store.modle.User;
 import com.example.tshirt_store.service.StoreService;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "storeServlet", urlPatterns = "/store")
@@ -44,6 +46,12 @@ public class StoreServlet extends HttpServlet {
             case "edit":
                 editProductAdmin(request, response);
                 break;
+            case "search":
+                searchProduct(request, response);
+                break;
+            case "logOut":
+                logOut(request, response);
+                break;
             default:
                 showCrud(request, response);
                 break;
@@ -51,6 +59,41 @@ public class StoreServlet extends HttpServlet {
         }
     }
 
+
+
+
+
+
+    protected void logOut(HttpServletRequest request, HttpServletResponse response) {
+        try{
+            HttpSession session = request.getSession();
+            session.invalidate();
+
+            // Chuyển hướng về trang login
+          RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/login.jsp");
+          requestDispatcher.forward(request, response);
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+        }
+
+
+
+
+    public void searchProduct(HttpServletRequest request, HttpServletResponse response){
+        try{
+            String nameProduct = request.getParameter("tenSanPham");
+            List<Product> listProduct = storeServiceInterface.findByProductName(nameProduct);
+            request.setAttribute("showListProduc", listProduct);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/userHome.jsp");
+            requestDispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public void editProductAdmin(HttpServletRequest request, HttpServletResponse response){
         try{
@@ -162,10 +205,7 @@ public class StoreServlet extends HttpServlet {
                         requestDispatcher.forward(request, response);
                     } else {
                         // Chuyển đến trang người dùng
-                        List<Product> listProduct = storeServiceInterface.showProduct();
-                        request.setAttribute("showListProduc", listProduct);
-                        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/userHome.jsp");
-                        requestDispatcher.forward(request, response);
+                       response.sendRedirect("cart");
                     }
                 } else {
                     // Mật khẩu không đúng
@@ -194,7 +234,7 @@ public class StoreServlet extends HttpServlet {
 
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
@@ -211,6 +251,9 @@ public class StoreServlet extends HttpServlet {
             case "login":
                 showLogin(request, response);
                 break;
+            case "info":
+                showInfoProduct(request, response);
+                break;
             case "crud":
                 showCrud(request, response);
                 break;
@@ -220,14 +263,49 @@ public class StoreServlet extends HttpServlet {
             case "delete":
                 deleteProductAdmin(request, response);
                 break;
-            default:
-                screenFirst(request, response);
+            case "home":
+                backHome(request, response);
                 break;
+            case "logOutUser":
+                logOut(request, response);
+                break;
+//            default:
+//                screenFirst(request, response);
+//                break;
         }
     }
 
 
+    public void backHome(HttpServletRequest request , HttpServletResponse response){
+        try{
+            List<Product> listProduct = storeServiceInterface.showProduct();
+            request.setAttribute("showListProduc", listProduct);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/userHome.jsp");
+            requestDispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
+    }
+
+    public void showInfoProduct(HttpServletRequest request, HttpServletResponse response){
+        try{
+            int id = Integer.parseInt(request.getParameter("idProduct"));
+            Product product = storeServiceInterface.findByIDProduct(id);
+            request.setAttribute("productInfo", product);
+            System.out.println(product);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/productInfo.jsp");
+            requestDispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
     public void deleteProductAdmin(HttpServletRequest request, HttpServletResponse response){
         try{
             int id = Integer.parseInt(request.getParameter("idProduct"));
@@ -272,17 +350,6 @@ public class StoreServlet extends HttpServlet {
         }
     }
 
-    public void screenFirst(HttpServletRequest request, HttpServletResponse response){
-        try{
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/login.jsp");
-            requestDispatcher.forward(request, response);
-        } catch (ServletException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
 
     public void showSignUp(HttpServletRequest request, HttpServletResponse response) {
         try {

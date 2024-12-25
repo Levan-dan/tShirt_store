@@ -49,7 +49,6 @@ body {
 
 #search-input {
     margin-top: 17px;
-    width: 300px;
     height: 26px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -63,9 +62,11 @@ body {
     border: 1px solid #ccc;
     border-radius: 3px;
 }
-.logoCart {
-    width: 50px;
-    height: 50px;
+
+.logoCart{
+    margin-right: 45px;
+    width: 35px;
+    height: 35px;
     object-fit: contain;
     cursor: pointer;
 }
@@ -98,6 +99,10 @@ body {
 
 
 
+
+.menu.hidden {
+    display: none;
+}
 .carousel-inner img {
     padding-top: 5px;
     height: 600px;
@@ -140,4 +145,72 @@ img {
 
 #productNew, #productChildren, #productFemale, #productMale, #bestSelling{
     scroll-margin-top: 75px; /* Cách header một khoảng 5px */
+}
+
+
+
+
+
+
+
+
+
+
+.menu-container {
+    position: fixed; /* Giữ menu cố định khi cuộn */
+    top: 20px; /* Điều chỉnh khoảng cách từ đỉnh */
+    right: 20px; /* Căn chỉnh cách mép phải */
+    z-index: 1000; /* Đảm bảo menu luôn hiển thị trên các phần tử khác */
+}
+.menu.hidden {
+    display: none;
+}
+
+/* Hiển thị menu */
+.menu {
+    position: absolute;
+    top: 60px; /* Điều chỉnh vị trí dọc của menu */
+    left: 50%; /* Canh giữa so với hình ảnh */
+    transform: translateX(-100%);
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+    text-align: left;
+    width: 200px; /* Độ rộng menu */
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+}
+
+.menu ul li {
+    border-bottom: 1px solid #ddd;
+    padding: 8px 12px;
+}
+
+.menu ul li:last-child {
+    border-bottom: none;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    display: block;
+    transition: background-color 0.3s ease;
+    font-family: Arial, sans-serif; /* Font chữ */
+}
+
+.menu ul li a:hover {
+    background-color: #f4f4f4;
+    color: #007bff;
+}
+
+#menuList li a:active {
+    background-color: limegreen; /* Màu nền khi nhấn */
+    color: white;
 }

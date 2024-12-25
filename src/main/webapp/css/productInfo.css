@@ -1,0 +1,142 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffeaf0;
+    margin: 0;
+    padding: 20px;
+}
+
+.product-details {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 900px;
+    border: 3px solid #ffc0cb;
+    height: 500px;
+}
+
+.product-image {
+    width: 360px;
+    height: 500px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-right: 35px;
+    border: 2px solid #ffc0cb;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column; /* Xếp các phần tử theo chiều dọc */
+    justify-content: space-evenly; /* Tách đều các phần tử */
+    /*align-items: flex-start; !* Căn trái các phần tử *!*/
+    flex: 1;
+    width: 360px;
+    height: 500px;
+    text-align: center;
+}
+
+.product-title {
+    font-size: 28px;
+    color: #d6336c;
+    margin-bottom: 10px;
+}
+
+#Evaluate img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.product-price {
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+.product-stock {
+    font-size: 15px;
+    color: gray;
+}
+
+.product-description {
+    font-size: 15px;
+    color: gray;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #d6336c;
+}
+
+.product-buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #ff69b4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #e75480;
+    transform: scale(1.05);
+}
+
+.add-to-cart {
+    width: 180px;
+    background-color: #ff82ab;
+}
+.add-to-cart a{
+    text-decoration: none;
+    color: white;
+
+}
+
+.add-to-cart:hover {
+    background-color: #e75480;
+}
+
+.buy-now {
+    width: 180px;
+    background-color: #ff69b4;
+}
+.buy-now a{
+    text-decoration: none;
+    color: white;
+}
+
+.buy-now:hover {
+    background-color: #d6336c;
+}
+
+#nameAndEvaluate {
+    margin-top: 20px;
+    text-align: left;
+}
+
+
+.product-quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-quantity label {
+    font-size: 14px;
+    color: #333;
+}
+
+#quantity {
+    text-align: center;
+    font-size: 14px;
+    background-color: #fff;
+}

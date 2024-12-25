@@ -9,9 +9,12 @@ import java.util.List;
 
 public class StoreService implements StoreServiceInterface {
 
-    private String url = System.getenv("url");
-    private String name = System.getenv("name");
-    private String pass = System.getenv("pass");
+//    private String url = System.getenv("url");
+//    private String name = System.getenv("name");
+//    private String pass = System.getenv("pass");
+    private String url = "jdbc:mysql://localhost:3306/shirt_store";
+    private String name = "root";
+    private String pass = "882005";
 
     public Connection getConnection() {
         Connection connection = null;
@@ -179,5 +182,31 @@ public class StoreService implements StoreServiceInterface {
         }
 
 
+    }
+
+
+    private String queryFindByName= "select * from product where nameProduct like ?" ;
+    @Override
+    public List<Product> findByProductName(String nameProduct) {
+       List<Product>  product = new ArrayList<>();
+        try{
+            Connection connection = getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(queryFindByName);
+            preparedStatement.setString(1, "%" + nameProduct + "%");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt("idProduct");
+                String nameProduct1 = resultSet.getString("nameProduct");
+                String image = resultSet.getString("image");
+                String description = resultSet.getString("description");
+                double price = resultSet.getDouble("price");
+                int stock = resultSet.getInt("stock");
+                Product productObject = new Product(id, nameProduct1, image, description, price, stock);
+                product.add(productObject);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return product;
     }
 }

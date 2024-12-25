@@ -1,40 +1,29 @@
 package com.example.tshirt_store.modle;
 
-public class Product {
+public class CartProduct {
     private int idProduct;
     private String nameProduct;
     private String image;
-    private String description;
     private double price;
-    private int stock;
+    private int quantity;
 
-    public Product(int idProduct, String nameProduct, String image, String description, double price, int stock) {
+    public CartProduct(int idProduct, String nameProduct, String image, double price, int quantity) {
         this.idProduct = idProduct;
         this.nameProduct = nameProduct;
         this.image = image;
-        this.description = description;
         this.price = price;
-        this.stock = stock;
+        this.quantity = quantity;
     }
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "CartProduct{" +
                 "idProduct=" + idProduct +
                 ", nameProduct='" + nameProduct + '\'' +
                 ", image='" + image + '\'' +
-                ", description='" + description + '\'' +
                 ", price=" + price +
-                ", stock=" + stock +
+                ", quantity=" + quantity +
                 '}';
-    }
-
-    public Product(String nameProduct, String image, String description, double price, int stock) {
-        this.nameProduct = nameProduct;
-        this.image = image;
-        this.description = description;
-        this.price = price;
-        this.stock = stock;
     }
 
     public int getIdProduct() {
@@ -61,14 +50,6 @@ public class Product {
         this.image = image;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public double getPrice() {
         return price;
     }
@@ -77,11 +58,11 @@ public class Product {
         this.price = price;
     }
 
-    public int getStock() {
-        return stock;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
