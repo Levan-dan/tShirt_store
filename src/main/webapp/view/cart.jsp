@@ -32,26 +32,28 @@
             <th>Hành động</th>
         </tr>
         <c:forEach items="${cart}" var="itemCart">
-            <tr>
+            <tr data-id="${itemCart.idProduct}">
                 <td>
-                    <input type="checkbox" class="product-checkbox"
-                           data-price="${itemCart.price}"
-                           data-quantity="${itemCart.quantity}" />
+                    <input type="checkbox" class="product-checkbox" data-price="${itemCart.price}" data-quantity="${itemCart.quantity}" />
                 </td>
                 <td>${itemCart.nameProduct}</td>
                 <td><img src="${itemCart.image}" alt="${itemCart.nameProduct}" style="width: 150px; height: 150px;"></td>
                 <td><fmt:formatNumber value="${itemCart.price}" type="currency" currencySymbol=".000VND"/></td>
                 <td>
-                    <input class="quantity-input" name="quantity" type="number" min="1" max="${productInfo.stock}"
-                           value="${itemCart.quantity}" data-price="${itemCart.price}"  data-id="${itemCart.idProduct}"
+                    <input class="quantity-input" name="quantity" type="number" min="1" max="${productInfo.stock}" value="${itemCart.quantity}"
+                           data-price="${itemCart.price}" data-id="${itemCart.idProduct}"
                            style="width: 60px; padding: 5px; border: 1px solid #ddd; border-radius: 5px; text-align: center">
                 </td>
-
-                <td class="item-total" >${itemCart.price * itemCart.quantity}00 VND</td>
+                <td class="item-total">${itemCart.price * itemCart.quantity}00 VND</td>
                 <td>
-                    <button><a>Xóa</a></button>
+                   <form action="cart" method="post">
+                       <input type="hidden" name="action" value="delete">
+                       <input type="hidden" name="idProduct" value="${itemCart.idProduct}">
+                       <button type="submit" class="delete-button" >Xóa</button>
+                   </form>
                 </td>
             </tr>
+
         </c:forEach>
     </table>
 
