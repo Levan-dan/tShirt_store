@@ -36,6 +36,8 @@ public class CartServlet extends HttpServlet {
             case "cart":
                 showCart(request, response);
                 break;
+            case "buyProduct":
+                showOrder(request, response);
             default:
                 showHomeUser(request, response);
                 break;
@@ -45,6 +47,17 @@ public class CartServlet extends HttpServlet {
 
 
 
+
+    public void showOrder(HttpServletRequest request, HttpServletResponse response){
+        try{
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/order.jsp");
+            requestDispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
