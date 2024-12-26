@@ -43,6 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const productCheckboxes = document.querySelectorAll(".product-checkbox");
     const quantityInputs = document.querySelectorAll(".quantity-input");
@@ -95,7 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
         checkbox.addEventListener("change", calculateTotal);
     });
 });
-
 
 
 

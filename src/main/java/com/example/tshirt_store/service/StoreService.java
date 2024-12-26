@@ -9,12 +9,12 @@ import java.util.List;
 
 public class StoreService implements StoreServiceInterface {
 
-//    private String url = System.getenv("url");
-//    private String name = System.getenv("name");
-//    private String pass = System.getenv("pass");
-    private String url = "jdbc:mysql://localhost:3306/shirt_store";
-    private String name = "root";
-    private String pass = "882005";
+    private String url = System.getenv("url");
+    private String name = System.getenv("name");
+    private String pass = System.getenv("pass");
+//    private String url = "jdbc:mysql://localhost:3306/shirt_store";
+//    private String name = "root";
+//    private String pass = "882005";
 
     public Connection getConnection() {
         Connection connection = null;
