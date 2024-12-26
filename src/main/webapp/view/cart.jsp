@@ -63,7 +63,7 @@
             <p id="totalAmount">0 VND</p>
         </div>
         <div>
-            <button>Đặt hàng</button>
+            <button><a href="cart?action=buyProduct">Mua hàng</a></button>
         </div>
     </div>
 </div>
