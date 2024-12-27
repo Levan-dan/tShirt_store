@@ -41,6 +41,7 @@
             <input type="number" id="stock" name="stock"  value="${product.stock}" />
         </div>
         <button type="submit">Chỉnh sửa</button>
+
     </div>
 </form>
 </body>

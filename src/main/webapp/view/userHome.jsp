@@ -73,6 +73,7 @@
                         <a href="store?action=info&idProduct=${product.idProduct}" style="color: white">Chi Tiết</a>
                     </button>
                 </div>
+
             </c:forEach>
         </div>
 

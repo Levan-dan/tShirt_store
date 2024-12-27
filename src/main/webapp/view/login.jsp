@@ -37,6 +37,7 @@
 
         <p id="linkDangKy">Chưa có tài khoản Haravan? <a href="store?action=signUp">Đăng ký ngay</a></p>
         <p id="footer">This site is protected by reCAPTCHA and the Google Privacy <br> Policy and Terms of Service apply.</p>
+
     </div>
 </div>
 </body>
