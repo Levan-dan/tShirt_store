@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: This  PC
@@ -12,7 +13,9 @@
     <link rel="stylesheet" href="css/order.css">
 </head>
 <body>
-<div id="orderInterface" class="order-container">
+<jsp:include page="/view/header.jsp"></jsp:include>
+
+<div id="orderInterface" class="order-container" style="margin-top: 30px">
     <div id="buyerInformation" class="buyer-info">
         <h3>Lê Quốc Dân</h3>
         <p>0328 640 157</p>
@@ -22,7 +25,7 @@
     <div id="productIsPurchased" class="product-container">
         <img src="https://www.dongphuctranganh.vn/media/product/thumb/1-ao-thun-doan-thanh-nien-viet-nam.jpg" alt="Tên sản phẩm" class="product-image">
         <div class="product-details">
-            <h4 class="product-name">Tên sản phẩm</h4>
+            <h4 class="product-name">Áo thun trơn</h4>
             <p class="product-price">100.000 VND</p>
             <p class="product-quantity">x1</p>
         </div>
@@ -44,9 +47,18 @@
 
     <div id="order" class="order-summary">
         <p>Tổng thanh toán: <span>100.000 VND</span></p>
-        <button class="order-button">Đặt hàng</button>
+        <button style="height: 40px"  class="order-button">Thanh toán</button>
     </div>
 </div>
 
+
+
+<c:forEach items="${orderList}" var="item">
+    <p>${item.idOrder}</p>
+
+</c:forEach>
+
+
+<script src="javascrip/order.js"></script>
 </body>
 </html>

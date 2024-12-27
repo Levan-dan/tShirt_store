@@ -49,7 +49,7 @@ img {
     border-radius: 5px;
 }
 
-button {
+.delete-button{
     background-color: #e75480;
     color: white;
     border: none;
