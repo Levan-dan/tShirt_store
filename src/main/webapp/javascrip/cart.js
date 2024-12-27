@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const allChecked = Array.from(productCheckboxes).every((cb) => cb.checked);
             selectAllCheckbox.checked = allChecked;
 
+
             calculateTotal();
         });
     });
@@ -98,7 +99,5 @@ document.addEventListener("DOMContentLoaded", () => {
         checkbox.addEventListener("change", calculateTotal);
     });
 });
-
-
 
 

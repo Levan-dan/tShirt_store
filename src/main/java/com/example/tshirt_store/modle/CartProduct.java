@@ -7,12 +7,25 @@ public class CartProduct {
     private double price;
     private int quantity;
 
+    public CartProduct(int idProduct, int quantity) {
+        this.quantity = quantity;
+        this.idProduct = idProduct;
+    }
+
     public CartProduct(int idProduct, String nameProduct, String image, double price, int quantity) {
         this.idProduct = idProduct;
         this.nameProduct = nameProduct;
         this.image = image;
         this.price = price;
         this.quantity = quantity;
+    }
+
+    public CartProduct(String productName, int quantity, double price, String url) {
+        this.nameProduct = productName;
+        this.quantity = quantity;
+        this.image = url;
+        this.price = price;
+
     }
 
     @Override

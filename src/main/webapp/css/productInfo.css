@@ -2,7 +2,7 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #ffeaf0;
     margin: 0;
-    padding: 20px;
+
 }
 
 .product-details {
@@ -95,7 +95,8 @@ body {
     width: 180px;
     background-color: #ff82ab;
 }
-.add-to-cart a{
+
+.add-to-cart a {
     text-decoration: none;
     color: white;
 
@@ -109,7 +110,8 @@ body {
     width: 180px;
     background-color: #ff69b4;
 }
-.buy-now a{
+
+.buy-now a {
     text-decoration: none;
     color: white;
 }

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
+<jsp:include page="/view/header.jsp"></jsp:include>
 <h1>GIỎ HÀNG</h1>
 <a href="cart">back</a>
 <br>
@@ -32,9 +33,11 @@
             <th>Hành động</th>
         </tr>
         <c:forEach items="${cart}" var="itemCart">
+            <input type="hidden" name="selectID" value="${itemCart.idProduct}">
+
             <tr data-id="${itemCart.idProduct}">
                 <td>
-                    <input type="checkbox" class="product-checkbox" data-price="${itemCart.price}" data-quantity="${itemCart.quantity}" />
+                    <input name="check" type="checkbox" class="product-checkbox" data-price="${itemCart.price}" data-quantity="${itemCart.quantity}" />
                 </td>
                 <td>${itemCart.nameProduct}</td>
                 <td><img src="${itemCart.image}" alt="${itemCart.nameProduct}" style="width: 150px; height: 150px;"></td>
@@ -63,11 +66,10 @@
             <p id="totalAmount">0 VND</p>
         </div>
         <div>
-            <button><a href="cart?action=buyProduct">Mua hàng</a></button>
+            <button type="submit" class="delete-button"><a href="cart?action=buyProduct">Đặt hàng</a></button>
         </div>
     </div>
 </div>
-
 <script src="javascrip/cart.js"></script>
 </body>
 </html>

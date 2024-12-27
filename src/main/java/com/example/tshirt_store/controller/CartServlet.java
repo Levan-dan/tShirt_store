@@ -2,6 +2,7 @@ package com.example.tshirt_store.controller;
 
 import com.example.tshirt_store.modle.CartProduct;
 import com.example.tshirt_store.modle.Product;
+import com.example.tshirt_store.modle.User;
 import com.example.tshirt_store.service.StoreService;
 import com.example.tshirt_store.service.StoreServiceInterface;
 
@@ -14,15 +15,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/cart")
 public class CartServlet extends HttpServlet {
 
-    StoreServiceInterface storeServiceInterface = new StoreService();
+    static StoreServiceInterface storeServiceInterface = new StoreService();
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
@@ -38,6 +42,12 @@ public class CartServlet extends HttpServlet {
                 break;
             case "buyProduct":
                 showOrder(request, response);
+//                try{
+//                    paymentProduct(request, response);
+//                }catch (Exception e){
+//                    e.getMessage();
+//                }
+
             default:
                 showHomeUser(request, response);
                 break;
@@ -45,6 +55,67 @@ public class CartServlet extends HttpServlet {
         }
     }
 
+    private static void paymentProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException, SQLException {
+        List<CartProduct> cart = (List<CartProduct>) req.getSession().getAttribute("cart");
+        if (cart == null || cart.isEmpty()) {
+            resp.sendRedirect("/user?action=showCart");
+            return;
+        }
+        HttpSession session = req.getSession();
+        User user = (User) session.getAttribute("loggedInUser");
+
+        for (CartProduct item : cart) {
+            String quantityParam = req.getParameter("quantity_" + item.getIdProduct());
+            if (quantityParam != null) {
+                int newQuantity = Integer.parseInt(quantityParam);
+                item.setQuantity(newQuantity);
+            }
+        }
+        session.setAttribute("cart", cart);
+
+
+        List<CartProduct> cartAfterCheckout = new ArrayList<>();
+        List<Integer> CartProductSelectedID = new ArrayList<>();
+        int orderID = storeServiceInterface.addOrder(user.getIdUser());
+        double totalAmount = 0;
+        String[] productSelected = req.getParameterValues("selectedProduct");
+
+        if (productSelected != null) {
+            for (String id : productSelected) {
+                int productID = Integer.parseInt(id);
+                CartProductSelectedID.add(productID);
+            }
+        } else {
+            req.setAttribute("error", "Vui lòng chọn sản phẩm cần mua!");
+            req.getRequestDispatcher("/user?action=showCart").forward(req, resp);
+            return;
+        }
+
+        for (CartProduct item : cart) {
+            if (CartProductSelectedID.contains(item.getIdProduct())) {
+                totalAmount += item.getQuantity() * item.getPrice();
+                storeServiceInterface.addOrderDetail(orderID, item.getIdProduct(), item.getQuantity());
+            } else {
+                cartAfterCheckout.add(item);
+            }
+        }
+
+        List<CartProduct> orderList = storeServiceInterface.getOrderDetail(orderID);
+        req.setAttribute("orderList", orderList);
+
+        req.getSession().setAttribute("cart", cartAfterCheckout);
+        req.setAttribute("totalAmount", totalAmount);
+        req.setAttribute("orderID", orderID);
+
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedNow = now.format(formatter);
+        req.setAttribute("orderDate",formattedNow);
+
+        req.setAttribute("success", "Thanh toán thành công!");
+        req.getRequestDispatcher("view/order.jsp").forward(req, resp);
+    }
+      
 
 
 
@@ -86,6 +157,8 @@ public class CartServlet extends HttpServlet {
             case "delete":
                 int removeId = Integer.parseInt(request.getParameter("idProduct"));
                 removeFromCart(request, response, removeId, cartProducts);
+                break;
+            case "buyProduct":
                 break;
         }
     }

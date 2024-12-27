@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/productInfo.css">
 </head>
 <body>
+<jsp:include page="/view/header.jsp"></jsp:include>
 <form action="cart?action=addToCart&idProduct=${productInfo.idProduct}" method="post">
 
 
@@ -54,7 +55,7 @@
 
             <div class="product-buttons">
                 <button type="submit" class="btn add-to-cart"><a>Thêm vào giỏ hàng</a></button>
-                <button class="btn buy-now"><a href="store?action=buy">Mua hàng</a></button>
+                <button class="btn buy-now"><a href="store?action=buy">Đặt hàng</a></button>
             </div>
 
         </div>
